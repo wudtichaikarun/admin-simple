@@ -2,8 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { space, palette } from "../../theme";
+import { OutlineButton, Tooltip } from "..";
 
-const StyledButton = styled.div`
+const StyledButton = styled(OutlineButton)`
   width: 100%;
   padding: ${space.md};
 
@@ -18,7 +19,11 @@ export default function SidebarMenu(props) {
   return (
     <div>
       {menuList.map(el => (
-        <StyledButton>{el.icon}</StyledButton>
+        <Tooltip key={el.id} title={"ro"} align={{ offset: [-12, 0] }}>
+          <StyledButton to={el.to} key={el.id}>
+            {el.icon}
+          </StyledButton>
+        </Tooltip>
       ))}
     </div>
   );

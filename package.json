@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.23.5",
     "flow-typed": "^2.6.1",
     "jest": "^24.9.0",
     "jest-cli": "20.0.4",

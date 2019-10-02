@@ -4,17 +4,12 @@ import { DashbaordIcon } from "../components/elements/Icons";
 export default [
   {
     id: "Dashboard",
-    to: "/dashboard",
+    to: "/",
     icon: <DashbaordIcon active={""} />
   },
   {
     id: "Booking",
-    to: "/booking",
-    icon: <DashbaordIcon active={""} />
-  },
-  {
-    id: "My Order",
-    to: "/myOrder",
+    to: "/dispatching",
     icon: <DashbaordIcon active={""} />
   }
 ];

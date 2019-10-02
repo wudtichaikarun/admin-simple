@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { animated } from "react-spring";
 
 import SidebarMenu from "./SidebarMenu";
 import { elSize } from "../../theme";
