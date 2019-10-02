@@ -8,6 +8,8 @@
     "jest-cli": "20.0.4",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.1.2"
   },
   "scripts": {
