@@ -1,4 +1,4 @@
-/ This optional code is used to register a service worker.
+// This optional code is used to register a service worker.
 // register() is not called by default.
 
 // This lets the app load faster on subsequent visits in production, and gives
@@ -10,8 +10,7 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
-const PUBLIC_URL =
-  process.env.PUBLIC_URL != null ? process.env.PUBLIC_URL : "";
+const PUBLIC_URL = process.env.PUBLIC_URL != null ? process.env.PUBLIC_URL : "";
 
 const isLocalhost = Boolean(
   window.location.hostname === "localhost" ||
