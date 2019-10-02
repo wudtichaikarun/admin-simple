@@ -13,27 +13,23 @@ const Loadable = opts =>
 const Main = {
   View: Loadable({
     loader: () =>
-      import(/* webpackChunkName: "MainView" */ "../containers/main/View")
+      import(/* webpackChunkName: "MainView" */ "../pages/Home/View")
   })
 };
 
 const Dispatch = {
   List: Loadable({
     loader: () =>
-      import(
-        /* webpackChunkName: "DispatchList" */ "../containers/dispatch/List"
-      )
+      import(/* webpackChunkName: "DispatchList" */ "../pages/Dispatching/List")
   }),
   View: Loadable({
     loader: () =>
-      import(
-        /* webpackChunkName: "DispatchView" */ "../containers/dispatch/View"
-      )
+      import(/* webpackChunkName: "DispatchView" */ "../pages/Dispatching/View")
   }),
   Create: Loadable({
     loader: () =>
       import(
-        /* webpackChunkName: "DispatchCreate" */ "../containers/dispatch/Create"
+        /* webpackChunkName: "DispatchCreate" */ "../pages/Dispatching/Create"
       )
   })
 };
