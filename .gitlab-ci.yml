@@ -69,6 +69,7 @@ staging-push:
     - apk update && apk add ca-certificates wget && update-ca-certificates
   script:
     - npm install
+    - npm run postinstall
     - npm run clean
     - PUBLIC_URL=$PUBLIC_URL REACT_APP_NODE_ENV=staging REACT_APP_BASE_URL=$REACT_APP_BASE_URL REACT_APP_API_ENDPOINT=$STAGING_API_URI npm run build
     - docker pull $CONTAINER_RELEASE_IMAGE:staging || true
