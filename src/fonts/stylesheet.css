@@ -1,0 +1,527 @@
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond';
+  src: url('NotoSansThaiUI-CondensedBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond Med';
+  src: url('NotoSansThaiUI-ExtraCondensedMedium.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Med';
+  src: url('NotoSansThaiUI-Medium.woff2') format('woff2'),
+    url('NotoSansThaiUI-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond ExtLt';
+  src: url('NotoSansThaiUI-ExtraCondensedExtraLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond Med';
+  src: url('NotoSansThaiUI-SemiCondensedMedium.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond';
+  src: url('NotoSansThaiUI-ExtraCondensedThin.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedThin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtLt';
+  src: url('NotoSansThaiUI-ExtraLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond Blk';
+  src: url('NotoSansThaiUI-CondensedBlack.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI';
+  src: url('NotoSansThaiUI-Bold.woff2') format('woff2'),
+    url('NotoSansThaiUI-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond Blk';
+  src: url('NotoSansThaiUI-ExtraCondensedBlack.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI';
+  src: url('NotoSansThaiUI-Light.woff2') format('woff2'),
+    url('NotoSansThaiUI-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond ExtBd';
+  src: url('NotoSansThaiUI-CondensedExtraBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI';
+  src: url('NotoSansThaiUI-Thin.woff2') format('woff2'),
+    url('NotoSansThaiUI-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond SemBd';
+  src: url('NotoSansThaiUI-SemiCondensedSemiBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedSemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond ExtBd';
+  src: url('NotoSansThaiUI-ExtraCondensedExtraBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond ExtLt';
+  src: url('NotoSansThaiUI-CondensedExtraLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Blk';
+  src: url('NotoSansThaiUI-Black.woff2') format('woff2'),
+    url('NotoSansThaiUI-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond';
+  src: url('NotoSansThaiUI-ExtraCondensedLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond ExtBd';
+  src: url('NotoSansThaiUI-SemiCondensedExtraBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond SemBd';
+  src: url('NotoSansThaiUI-CondensedSemiBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedSemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond';
+  src: url('NotoSansThaiUI-SemiCondensedThin.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedThin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond';
+  src: url('NotoSansThaiUI-CondensedThin.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedThin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemBd';
+  src: url('NotoSansThaiUI-SemiBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond';
+  src: url('NotoSansThaiUI-CondensedLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond';
+  src: url('NotoSansThaiUI-SemiCondensed.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensed.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond';
+  src: url('NotoSansThaiUI-Condensed.woff2') format('woff2'),
+    url('NotoSansThaiUI-Condensed.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI Cond Med';
+  src: url('NotoSansThaiUI-CondensedMedium.woff2') format('woff2'),
+    url('NotoSansThaiUI-CondensedMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond ExtLt';
+  src: url('NotoSansThaiUI-SemiCondensedExtraLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtBd';
+  src: url('NotoSansThaiUI-ExtraBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond';
+  src: url('NotoSansThaiUI-ExtraCondensedBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond';
+  src: url('NotoSansThaiUI-SemiCondensedBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond';
+  src: url('NotoSansThaiUI-SemiCondensedLight.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI';
+  src: url('NotoSansThaiUI-Regular.woff2') format('woff2'),
+    url('NotoSansThaiUI-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond SemBd';
+  src: url('NotoSansThaiUI-ExtraCondensedSemiBold.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensedSemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI ExtCond';
+  src: url('NotoSansThaiUI-ExtraCondensed.woff2') format('woff2'),
+    url('NotoSansThaiUI-ExtraCondensed.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans Thai UI SemCond Blk';
+  src: url('NotoSansThaiUI-SemiCondensedBlack.woff2') format('woff2'),
+    url('NotoSansThaiUI-SemiCondensedBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-UltralightItalic.woff2') format('woff2'),
+    url('SFProDisplay-UltralightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-ThinItalic.woff2') format('woff2'),
+    url('SFProDisplay-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-Semibold.woff2') format('woff2'),
+    url('SFProText-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-RegularItalic.woff2') format('woff2'),
+    url('SFProText-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-Bold.woff2') format('woff2'),
+    url('SFProText-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-Regular.woff2') format('woff2'),
+    url('SFProText-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-HeavyItalic.woff2') format('woff2'),
+    url('SFProDisplay-HeavyItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Light.woff2') format('woff2'),
+    url('SFProDisplay-Light.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-Heavy.woff2') format('woff2'),
+    url('SFProText-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Medium.woff2') format('woff2'),
+    url('SFProDisplay-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Heavy.woff2') format('woff2'),
+    url('SFProDisplay-Heavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Ultralight.woff2') format('woff2'),
+    url('SFProDisplay-Ultralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-LightItalic.woff2') format('woff2'),
+    url('SFProText-LightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-HeavyItalic.woff2') format('woff2'),
+    url('SFProText-HeavyItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-BlackItalic.woff2') format('woff2'),
+    url('SFProDisplay-BlackItalic.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Regular.woff2') format('woff2'),
+    url('SFProDisplay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Thin.woff2') format('woff2'),
+    url('SFProDisplay-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-SemiboldItalic.woff2') format('woff2'),
+    url('SFProDisplay-SemiboldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-MediumItalic.woff2') format('woff2'),
+    url('SFProDisplay-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-Light.woff2') format('woff2'),
+    url('SFProText-Light.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-Medium.woff2') format('woff2'),
+    url('SFProText-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-SemiboldItalic.woff2') format('woff2'),
+    url('SFProText-SemiboldItalic.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-LightItalic.woff2') format('woff2'),
+    url('SFProDisplay-LightItalic.woff') format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-BoldItalic.woff2') format('woff2'),
+    url('SFProDisplay-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-BoldItalic.woff2') format('woff2'),
+    url('SFProText-BoldItalic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-RegularItalic.woff2') format('woff2'),
+    url('SFProDisplay-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Black.woff2') format('woff2'),
+    url('SFProDisplay-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Semibold.woff2') format('woff2'),
+    url('SFProDisplay-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('SFProDisplay-Bold.woff2') format('woff2'),
+    url('SFProDisplay-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('SFProText-MediumItalic.woff2') format('woff2'),
+    url('SFProText-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}

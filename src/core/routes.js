@@ -1,6 +1,6 @@
 import React from "react";
 import L from "react-loadable";
-import { RouteTemplate } from "../components/elements/templates";
+import { RouteTemplate } from "../components/templates";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 const LOADABLE_CONFIG = { loading: () => null, delay: 2000 };
