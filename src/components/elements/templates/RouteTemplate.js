@@ -7,7 +7,7 @@ type Props = {
   component: any
 };
 
-export default function RouteLayout(props: Props) {
+export default function RouteTemplate(props: Props) {
   const { component: Component, ...rest } = props;
   return <Route {...rest} render={_props => <Component {..._props} />} />;
 }

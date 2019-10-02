@@ -1,6 +1,6 @@
 import React from "react";
 import L from "react-loadable";
-import RouteLayout from "../components/RouteLayout";
+import { RouteTemplate } from "../components/elements/templates";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 
 const LOADABLE_CONFIG = { loading: () => null, delay: 2000 };
@@ -42,14 +42,14 @@ export default function Routers() {
   return (
     <Router basename={process.env.REACT_APP_BASE_URL}>
       <Switch>
-        <RouteLayout path="/" component={Main.View} exact />
-        <RouteLayout path="/dispatching" component={Dispatch.List} exact />
-        <RouteLayout
+        <RouteTemplate path="/" component={Main.View} exact />
+        <RouteTemplate path="/dispatching" component={Dispatch.List} exact />
+        <RouteTemplate
           path="/dispatching/create"
           component={Dispatch.List}
           exact
         />
-        <RouteLayout
+        <RouteTemplate
           path="/dispatching/:id/view"
           component={Dispatch.View}
           exact
