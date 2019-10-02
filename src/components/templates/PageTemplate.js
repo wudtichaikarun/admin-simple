@@ -22,6 +22,8 @@ const Box = styled.div`
   display: flex;
   flex: 1 100%;
   height: 100%;
+  margin-left: 3.5rem;
+  padding: 1rem;
   overflow: hidden;
 `;
 

@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { animated } from "react-spring";
 
 import SidebarMenu from "./SidebarMenu";
 import { elSize } from "../../theme";
+import useTranslateSpring from "../../../hooks/useTranslateSpring";
 
 const StyledContainer = styled.div`
   display: flex;
@@ -18,8 +20,14 @@ const StyledContainer = styled.div`
 `;
 export default function Sidebar(props) {
   const { sidebarMenu } = props;
+  const boxAnimated = useTranslateSpring({
+    y: "-300px",
+    z: 0,
+    delay: 200
+  });
+
   return (
-    <StyledContainer>
+    <StyledContainer style={boxAnimated}>
       <SidebarMenu menuList={sidebarMenu} />
     </StyledContainer>
   );
