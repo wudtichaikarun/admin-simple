@@ -16,6 +16,7 @@
     "test": "$(npm bin)/flow && react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "$(npm bin)/flow",
+    "clean": "rm -rf build",
     "postinstall": "$(npm bin)/flow-typed install"
   },
   "eslintConfig": {

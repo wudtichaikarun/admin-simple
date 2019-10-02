@@ -1,0 +1,143 @@
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+cache:
+  untracked: true
+
+variables:
+  CONTAINER_RELEASE_IMAGE: registry.dev.true-e-logistics.com/sendit/4pl-web-poc
+  DOCKER_DRIVER: overlay
+
+#region Production
+production-push:
+  image: registry.gitlab.com/sendit-th/docker-base:node10
+  stage: build
+  environment: production
+  cache:
+    key: "$CI_BUILD_REF_NAME"
+    paths:
+      - node_modules/
+  before_script:
+    - apk add --no-cache --update make gcc g++ libc-dev libpng-dev automake autoconf libtool nasm
+    - export DOCKER_API_VERSION=1.23 && docker login -u $DOCKER_USER -p $DOCKER_PASSWORD registry.dev.true-e-logistics.com
+    - apk update && apk add ca-certificates wget && update-ca-certificates
+  script:
+    - npm install
+    - npm run clean
+    - PUBLIC_URL=$PUBLIC_URL REACT_APP_NODE_ENV=production REACT_APP_BASE_URL=$REACT_APP_BASE_URL REACT_APP_API_ENDPOINT=$PRODUCTION_API_URI npm run build
+    - docker pull $CONTAINER_RELEASE_IMAGE:stable || true
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE:stable -t $CONTAINER_RELEASE_IMAGE:${CI_BUILD_TAG} -f deployment/Dockerfile .
+    - docker push $CONTAINER_RELEASE_IMAGE:${CI_BUILD_TAG}
+  tags:
+    - docker
+  only:
+    - tags@sendit-th/4pl-web-poc
+production-deploy:
+  image: registry.gitlab.com/sendit-th/docker-base:kube
+  stage: deploy
+  environment: production
+  before_script:
+    - mkdir ~/.kube
+    - echo -n "${PROD_KUBE_CONFIG}" | base64 -d > ~/.kube/config
+    - kubectl config use-context sendit-prod.k8s.local
+    - "helm init --client-only"
+  script:
+    - "git clone https://$GITLAB_USERNAME:$GITLAB_PASSWORD@gitlab.com/sendit-th/sendit-infra-cluster.git /sendit-infra-cluster"
+    - "helm upgrade -i prod-4pl-web-poc /sendit-infra-cluster/helm-generic-deployment -f deployment/values-production.yaml --namespace=production --set image.tag=${CI_BUILD_TAG} --wait"
+  tags:
+    - docker
+  only:
+    - tags@sendit-th/4pl-web-poc
+#endregion
+
+#region Staging
+staging-push:
+  image: registry.gitlab.com/sendit-th/docker-base:node10
+  stage: build
+  environment: staging
+  cache:
+    key: "$CI_BUILD_REF_NAME"
+    paths:
+      - node_modules/
+  before_script:
+    - apk add --no-cache --update make gcc g++ libc-dev libpng-dev automake autoconf libtool nasm
+    - export DOCKER_API_VERSION=1.23 && docker login -u $DOCKER_USER -p $DOCKER_PASSWORD registry.dev.true-e-logistics.com
+    - apk update && apk add ca-certificates wget && update-ca-certificates
+  script:
+    - npm install
+    - npm run clean
+    - PUBLIC_URL=$PUBLIC_URL REACT_APP_NODE_ENV=staging REACT_APP_BASE_URL=$REACT_APP_BASE_URL REACT_APP_API_ENDPOINT=$STAGING_API_URI npm run build
+    - docker pull $CONTAINER_RELEASE_IMAGE:staging || true
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE:staging -t $CONTAINER_RELEASE_IMAGE:staging-${CI_COMMIT_SHA:0:7} -f deployment/Dockerfile .
+    - docker push $CONTAINER_RELEASE_IMAGE:staging-${CI_COMMIT_SHA:0:7}
+  tags:
+    - docker
+  only:
+    - master
+
+staging-deploy:
+  image: registry.gitlab.com/sendit-th/docker-base:kube
+  stage: deploy
+  environment: staging
+  before_script:
+    - mkdir ~/.kube
+    - echo -n "${DEV_KUBE_CONFIG}" | base64 -d > ~/.kube/config
+    - kubectl config use-context admin-sendit-dev-staging.k8s.local
+    - "helm init --client-only"
+  script:
+    - "git clone https://$GITLAB_USERNAME:$GITLAB_PASSWORD@gitlab.com/sendit-th/sendit-infra-cluster.git /sendit-infra-cluster"
+    - "helm upgrade -i staging-4pl-web-poc /sendit-infra-cluster/helm-generic-deployment -f deployment/values-staging.yaml --namespace=staging --set image.tag=staging-${CI_COMMIT_SHA:0:7} --wait"
+  tags:
+    - docker
+  only:
+    - master
+
+#region Development
+development-push:
+  image: registry.gitlab.com/sendit-th/docker-base:node10
+  stage: build
+  environment: development
+  cache:
+    key: "$CI_BUILD_REF_NAME"
+    paths:
+      - node_modules/
+  before_script:
+    - apk add --no-cache --update make gcc g++ libc-dev libpng-dev automake autoconf libtool nasm
+    - export DOCKER_API_VERSION=1.23 && docker login -u $DOCKER_USER -p $DOCKER_PASSWORD registry.dev.true-e-logistics.com
+    - apk update && apk add ca-certificates wget && update-ca-certificates
+  script:
+    - npm install
+    - npm run clean
+    - npm run build-storybook
+    # Update storybook static resource to load from /4pl-storybook not from root path according to our k8s ingress
+    - sed -i 's/static/4pl-storybook\/static/g' ./storybook-static/index.html
+    - sed -i 's/iframe.html/4pl-storybook\/iframe.html/g' ./storybook-static/static/*.js
+    - docker pull $CONTAINER_RELEASE_IMAGE:development || true
+    - docker build --cache-from $CONTAINER_RELEASE_IMAGE:development -t $CONTAINER_RELEASE_IMAGE:${CI_COMMIT_SHA:0:7} -f deployment/Dockerfile .
+    - docker push $CONTAINER_RELEASE_IMAGE:${CI_COMMIT_SHA:0:7}
+  tags:
+    - docker
+  only:
+    - develop
+
+development-deploy:
+  image: registry.gitlab.com/sendit-th/docker-base:kube
+  stage: deploy
+  environment: developmemt
+  before_script:
+    - mkdir ~/.kube
+    - echo -n "${DEV_KUBE_CONFIG}" | base64 -d > ~/.kube/config
+    - kubectl config use-context admin-sendit-dev-staging.k8s.local
+    - "helm init --client-only"
+  script:
+    - "git clone https://$GITLAB_USERNAME:$GITLAB_PASSWORD@gitlab.com/sendit-th/sendit-infra-cluster.git /sendit-infra-cluster"
+    - "helm upgrade -i dev-4pl-web-poc /sendit-infra-cluster/helm-generic-deployment -f deployment/values-development.yaml --namespace=development --set image.tag=${CI_COMMIT_SHA:0:7} --wait"
+  tags:
+    - docker
+  only:
+    - develop
+#endregion

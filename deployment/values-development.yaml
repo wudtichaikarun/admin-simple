@@ -1,0 +1,48 @@
+kind: Deployment
+replicaCount: 1
+
+image:
+  repository: registry.dev.true-e-logistics.com/sendit/4pl-web-poc
+  pullPolicy: Always
+imagePullSecrets:
+  name: telregistry
+terminationGracePeriodSeconds: 60
+nameOverride: development-4pl-web-poc
+containerPorts:
+  - containerPort: 80
+    protocol: TCP
+workingDir: /var/source
+env:
+  - name: REACT_APP_NODE_ENV
+    value: development
+healthCheck:
+  enabled: true
+  readinessProbe:
+    httpGet:
+      path: /
+      port: 80
+      initialDelaySeconds: 5
+      timeoutSeconds: 1
+      periodSeconds: 30
+      successThreshold: 1
+      failureThreshold: 3
+  livenessProbe:
+    httpGet:
+      path: /
+      port: 80
+    initialDelaySeconds: 300
+    timeoutSeconds: 10
+    periodSeconds: 60
+    successThreshold: 1
+    failureThreshold: 3
+
+services:
+  - type: ClusterIP
+    ports:
+      - name: development-4pl-web-poc-http
+        protocol: TCP
+        port: 80
+        targetPort: 80
+serviceHostNetwork:
+  enabled: false
+nodeSelectorOverride: true
