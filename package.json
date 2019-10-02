@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "flow-typed": "^2.6.1",
+    "jest": "^24.9.0",
+    "jest-cli": "20.0.4",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "$(npm bin)/flow && react-scripts start",
+    "build": "$(npm bin)/flow && react-scripts build",
+    "test": "$(npm bin)/flow && react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "flow": "$(npm bin)/flow",
+    "postinstall": "$(npm bin)/flow-typed install"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -27,5 +32,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "flow-bin": "^0.108.0"
   }
 }

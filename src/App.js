@@ -1,8 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// @flow
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+type Props = {};
+function App(props: Props) {
   return (
     <div className="App">
       <header className="App-header">
