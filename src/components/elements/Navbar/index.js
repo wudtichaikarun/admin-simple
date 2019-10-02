@@ -1,5 +1,5 @@
 import React from "react";
-import { useSpring, animated, config } from "react-spring";
+import { animated } from "react-spring";
 import styled from "styled-components";
 
 import { space, elSize } from "../../theme";
