@@ -1,3 +1,4 @@
 export { default as Logo } from "./Logo";
 export { default as DashbaordIcon } from "./DashboardIcon";
 export { default as MoreIcon } from "./MoreIcon";
+export { default as SearchIcon } from "./SearchIcon";

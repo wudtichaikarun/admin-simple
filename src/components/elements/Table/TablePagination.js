@@ -1,30 +1,30 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
-import Table from '.'
-import TableFilter from './TableFilter'
-import SpinArea from '../SpinArea'
-import { Pagination, Select } from '..'
+import Table from ".";
+import TableFilter from "./TableFilter";
+import SpinArea from "../SpinArea";
+import { Pagination, Select } from "..";
 
-import useGetPagination from '../../../hooks/useGetPagination'
-import { pageOptions } from '../../../constants/globalValues'
-import { space, fontSizes, palette } from '../../theme'
+import useGetPagination from "../../../hooks/useGetPagination";
+import { pageOptions } from "../../../constants/globalVaues";
+import { space, fontSizes, palette } from "../../theme";
 
 const Container = styled.div`
   display: flex;
-  position: ${props => (props.nonFixed ? 'unset' : 'fixed')};
+  position: ${props => (props.nonFixed ? "unset" : "fixed")};
   flex-direction: column;
   box-shadow: 0 1px 3px 0 rgba(8, 27, 51, 0.2);
   background: white;
   height: auto;
   max-height: ${props => props.height};
-  width: ${props => props.width || '100%'};
-`
+  width: ${props => props.width || "100%"};
+`;
 
 const Box = styled.div`
   background: white;
   overflow-y: scroll;
-`
+`;
 
 const Footer = styled.div`
   display: flex;
@@ -38,16 +38,16 @@ const Footer = styled.div`
     font-size: ${fontSizes.xxs};
     color: ${palette.grey50};
   }
-`
+`;
 
 const RenderTable = props => {
-  const { withFilter, height, width, pageHookProps, nonFixed } = props
-  const { pageData, pageMethod } = pageHookProps
+  const { withFilter, height, width, pageHookProps, nonFixed } = props;
+  const { pageData, pageMethod } = pageHookProps;
 
   const _onChangeLimit = limit => {
-    pageMethod.setPage(1)
-    pageMethod.setLimit(limit)
-  }
+    pageMethod.setPage(1);
+    pageMethod.setLimit(limit);
+  };
 
   return (
     <>
@@ -86,33 +86,32 @@ const RenderTable = props => {
         </Footer>
       </Container>
     </>
-  )
-}
+  );
+};
 
 function TableWithModel(props) {
-  const [pageData, pageMethod] = useGetPagination(props.model)
-
+  const [pageData, pageMethod] = useGetPagination(props.model);
   const pageHookProps = {
     pageData,
-    pageMethod,
-  }
+    pageMethod
+  };
 
-  return <RenderTable {...props} pageHookProps={pageHookProps} />
+  return <RenderTable {...props} pageHookProps={pageHookProps} />;
 }
 
 function TableWithOutModel(props) {
-  return <RenderTable {...props} />
+  return <RenderTable {...props} />;
 }
 
 function TablePagination(props) {
   if (props.model) {
-    return <TableWithModel {...props} model={props.model} />
+    return <TableWithModel {...props} model={props.model} />;
   }
-  return <TableWithOutModel {...props} />
+  return <TableWithOutModel {...props} />;
 }
 
 TablePagination.defaultProps = {
-  withFilter: false,
-}
+  withFilter: false
+};
 
-export default TablePagination
+export default TablePagination;

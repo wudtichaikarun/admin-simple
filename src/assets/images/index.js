@@ -1,0 +1,6 @@
+export { default as bgLanding } from './bg-landing.jpg'
+export { default as bgParcel } from './bg-parcelGroup.png'
+export { default as logo } from './icon-logo.svg'
+export { default as logoText } from './icon-logoTxt.svg'
+export { default as facebookIcn } from './icon-facebook.svg'
+export { default as bgTracking } from './bg-tracking.jpg'
