@@ -11,9 +11,28 @@ body {
   height: 100%;
 }
 
-*,
+/* *,
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+} */
+
+/* -------------------------- antd overwrite ----------------------------------*/
+
+/* Pagination */
+.ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border: none !important;
+}
+
+.ant-pagination-item-active {
+  border: none !important;
+  background: transparent;
+  box-shadow: 0 2px 3px 0 rgba(77, 156, 251, 0.3);
+  background-image: linear-gradient(294deg, #5bc6f0, #008cff 57%, #2e6ae3);
+}
+
+.ant-pagination-item-active a {
+  color: white !important;
 }
