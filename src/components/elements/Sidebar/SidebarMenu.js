@@ -19,7 +19,7 @@ export default function SidebarMenu(props) {
   return (
     <div>
       {menuList.map(el => (
-        <Tooltip key={el.id} title={"ro"} align={{ offset: [-12, 0] }}>
+        <Tooltip key={el.id} title={el.id} align={{ offset: [-12, 0] }}>
           <StyledButton to={el.to} key={el.id}>
             {el.icon}
           </StyledButton>

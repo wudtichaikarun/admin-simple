@@ -8,7 +8,6 @@ import { fonts, fontSizes, palette } from "../../theme";
 import { Body } from "../Text";
 
 const StyledTable = styled(Table)`
-  width: 100%;
   .ant-table-thead > tr > th {
     font-family: ${fonts.pro};
     font-weight: bold;
@@ -50,6 +49,8 @@ const StyledBodyText = styled(Body)`
 const TableComponent = props => {
   const { withEdit, withIndex, menuActions, page, limit } = props;
   let { columns, data } = props;
+
+  console.log("data", data);
 
   const customizeData = () => {
     if (withIndex) {

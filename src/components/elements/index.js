@@ -6,3 +6,6 @@ export { default as SpinArea } from "./SpinArea";
 export { default as Popover } from "./Popover";
 export { default as PopoverMenu } from "./PopoverMenu";
 export { default as Text } from "./Text";
+export { default as Pagination } from "./Pagination";
+export { default as Select } from "./Select";
+export { default as Breadcrumb } from "./Breadcrumb";

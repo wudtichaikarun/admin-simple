@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import * as R from "ramda";
 import { useDebounce } from ".";
 
 function useGetPagination(model) {
@@ -33,9 +34,14 @@ function useGetPagination(model) {
     try {
       const res = await model({ filter: searchTerm, limit, page: p, ...filters }) // prettier-ignore
       setPage(p);
-      setTotal(res.data.total);
-      setHasNext(res.data.hasNext);
-      setResults(res.data.data);
+      const response = R.path(["data", "data"], res);
+      const data = R.path(["data"], response);
+      const total = R.path(["total"], response);
+      const hasNext = R.path(["hasNext"], response);
+      setLoading(false);
+      setResults(data);
+      setTotal(total);
+      setHasNext(hasNext);
     } catch {
       setPage(p);
     }
@@ -46,10 +52,15 @@ function useGetPagination(model) {
     setLoading(true);
     try {
       const res = await model({ filter: searchTerm, limit, page, ...filters });
+      const response = R.path(["data", "data"], res);
+      console.log("response", response);
+      const data = R.path(["data"], response);
+      const total = R.path(["total"], response);
+      const hasNext = R.path(["hasNext"], response);
       setLoading(false);
-      setResults(res.data.data);
-      setTotal(res.data.total);
-      setHasNext(res.data.hasNext);
+      setResults(data);
+      setTotal(total);
+      setHasNext(hasNext);
     } catch {
       setResults([]);
     }
